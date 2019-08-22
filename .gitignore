@@ -1,0 +1,3 @@
+**/*.pyc
+pgdata
+env/lib

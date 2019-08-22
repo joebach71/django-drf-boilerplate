@@ -1,0 +1,25 @@
+version: "3"
+services:
+  # web:
+  #   build: .
+  #   image: joepark71/django-boilerplate:dev
+  #   ports:
+  #     - "8000:8000"
+  #   environment:
+  #     POSTGRES_DB: "django"
+  #     POSTGRES_USER: "postgres"
+  #     POSTGRES_PASSWORD: "postgres"
+  #   volumes:
+  #     - ./server:/app
+  #   depends_on:
+  #     - database
+  database:
+    image: postgres:9-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: "django"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
