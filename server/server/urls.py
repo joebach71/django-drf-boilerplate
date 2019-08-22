@@ -26,7 +26,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
 # ViewSets define the view behavior.
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
+    queryset = User.objects.all().order_by('username')
     serializer_class = UserSerializer
 
 # Routers provide an easy way of automatically determining the URL conf.
