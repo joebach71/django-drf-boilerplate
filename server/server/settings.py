@@ -77,13 +77,11 @@ WSGI_APPLICATION = 'server.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',
-        # 'HOST': '0.0.0.0', # can use ip address
-        'PORT': '',
-        # 'PORT': '5432', # default port
+        'NAME': os.environ.get('POSTGRES_NAME') or 'django',
+        'USER': os.environ.get('POSTGRES_USER') or 'postgres',
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD') or 'postgres',
+        'HOST': os.environ.get('POSTGRES_HOST') or 'localhost', # can use ip address
+        'PORT': os.environ.get('POSTGRES_PORT') or 5432, # default port
     }
 }
 # DATABASES = {
